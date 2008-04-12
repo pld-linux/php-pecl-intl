@@ -1,7 +1,7 @@
 %define		_modname	intl
 %define		_status		beta
 Summary:	%{_modname} - Internationalization extension
-Summary(pl.UTF-8):	%{_modname} - roszerzenie internacjonaliacji
+Summary(pl.UTF-8):	%{_modname} - rozszerzenie internacjonalizacji
 Name:		php-pecl-%{_modname}
 Version:	1.0.0
 Release:	0.beta.1
