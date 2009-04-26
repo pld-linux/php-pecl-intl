@@ -5,7 +5,7 @@ Summary(pl.UTF-8):	%{_modname} - rozszerzenie internacjonalizacji
 Name:		php-pecl-%{_modname}
 Version:	1.0.2
 Release:	1
-License:	PHP 2.02
+License:	PHP 3.01
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{_modname}-%{version}.tgz
 # Source0-md5:	c68272f7dfacde9de8b44c57bae31be6
