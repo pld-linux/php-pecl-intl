@@ -1,0 +1,40 @@
+--- php-pecl-intl-1.1.0/intl-1.1.0/resourcebundle/resourcebundle_class.c.orig	2010-01-09 01:52:35.000000000 +0100
++++ php-pecl-intl-1.1.0/intl-1.1.0/resourcebundle/resourcebundle_class.c	2010-02-09 09:14:07.437288491 +0100
+@@ -87,7 +87,7 @@
+ 	char *    pbuf;
+ 
+ 	zval                  *object = return_value;
+-	ResourceBundle_object *rb = (ResourceBundle_object *) zend_object_store_get_object( object );
++	ResourceBundle_object *rb = (ResourceBundle_object *) zend_object_store_get_object( object TSRMLS_CC );
+ 
+ 	intl_error_reset( NULL TSRMLS_CC );
+ 
+@@ -247,7 +247,7 @@
+ /* {{{ resourcebundle_array_count */
+ int resourcebundle_array_count(zval *object, long *count TSRMLS_DC) 
+ {
+-	ResourceBundle_object *rb = (ResourceBundle_object *) zend_object_store_get_object( object );
++	ResourceBundle_object *rb = (ResourceBundle_object *) zend_object_store_get_object( object TSRMLS_CC );
+ 
+ 	*count = ures_getSize( rb->me );
+ 
+--- php-pecl-intl-1.1.0/intl-1.1.0/resourcebundle/resourcebundle_iterator.c.orig	2010-01-09 01:52:35.000000000 +0100
++++ php-pecl-intl-1.1.0/intl-1.1.0/resourcebundle/resourcebundle_iterator.c	2010-02-09 09:14:51.587293426 +0100
+@@ -94,7 +94,7 @@
+ {
+ 	ResourceBundle_iterator *iterator = (ResourceBundle_iterator *) iter;
+ 	if (!iterator->current) {
+-		resourcebundle_iterator_read( iterator );
++		resourcebundle_iterator_read( iterator TSRMLS_CC );
+ 	}
+ 	*data = &iterator->current;
+ }
+@@ -106,7 +106,7 @@
+ 	ResourceBundle_iterator *iterator = (ResourceBundle_iterator *) iter;
+ 
+ 	if (!iterator->current) {
+-		resourcebundle_iterator_read( iterator );
++		resourcebundle_iterator_read( iterator TSRMLS_CC );
+ 	}
+ 	if (iterator->is_table) {
+ 		*str_key = estrdup( iterator->currentkey );
