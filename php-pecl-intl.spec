@@ -1,13 +1,13 @@
-%define		_modname	intl
-%define		_status		stable
-Summary:	%{_modname} - Internationalization extension
-Summary(pl.UTF-8):	%{_modname} - rozszerzenie internacjonalizacji
-Name:		php-pecl-%{_modname}
+%define		modname		intl
+%define		status		stable
+Summary:	%{modname} - Internationalization extension
+Summary(pl.UTF-8):	%{modname} - rozszerzenie internacjonalizacji
+Name:		php-pecl-%{modname}
 Version:	1.1.0
 Release:	1
 License:	PHP 3.01
 Group:		Development/Languages/PHP
-Source0:	http://pecl.php.net/get/%{_modname}-%{version}.tgz
+Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
 # Source0-md5:	650f59a78650f4557f3bf8745ce2c663
 Patch0:		%{name}-tsrm.patch
 URL:		http://pecl.php.net/package/intl/
@@ -15,7 +15,7 @@ BuildRequires:	libicu-devel >= 3.4.0-1
 BuildRequires:	php-devel >= 3:5.0.0
 BuildRequires:	rpmbuild(macros) >= 1.344
 %{?requires_php_extension}
-Requires:	php-common >= 4:5.0.4
+Provides:	php(intl)
 Obsoletes:	php-pecl-idn
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -23,20 +23,21 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Internationalization extension implements ICU library functionality in
 PHP.
 
-In PECL status of this extension is: %{_status}.
+Since 1.0.2 it also integrates IDN functions.
+
+In PECL status of this extension is: %{status}.
 
 %description -l pl.UTF-8
 Rozszerzenie to posiada zaimplementowaną obsługę biblioteki ICU.
 
-To rozszerzenie ma w PECL status: %{_status}.
+To rozszerzenie ma w PECL status: %{status}.
 
 %prep
-%setup -q -c
-cd %{_modname}-%{version}
+%setup -qc
+mv %{modname}-%{version}/* .
 %patch0 -p2
 
 %build
-cd %{_modname}-%{version}
 phpize
 %configure
 %{__make}
@@ -46,12 +47,11 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d
 
 %{__make} install \
-	-C %{_modname}-%{version} \
 	INSTALL_ROOT=$RPM_BUILD_ROOT \
 	EXTENSION_DIR=%{php_extensiondir}
-cat <<'EOF' > $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d/%{_modname}.ini
-; Enable %{_modname} extension module
-extension=%{_modname}.so
+cat <<'EOF' > $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d/%{modname}.ini
+; Enable %{modname} extension module
+extension=%{modname}.so
 EOF
 
 %clean
@@ -67,6 +67,6 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc %{_modname}-%{version}/{doc/,CREDITS}
-%config(noreplace) %verify(not md5 mtime size) %{php_sysconfdir}/conf.d/%{_modname}.ini
-%attr(755,root,root) %{php_extensiondir}/%{_modname}.so
+%doc doc CREDITS
+%config(noreplace) %verify(not md5 mtime size) %{php_sysconfdir}/conf.d/%{modname}.ini
+%attr(755,root,root) %{php_extensiondir}/%{modname}.so
