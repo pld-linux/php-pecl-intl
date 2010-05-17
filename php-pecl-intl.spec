@@ -12,7 +12,10 @@ Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
 Patch0:		%{name}-tsrm.patch
 URL:		http://pecl.php.net/package/intl/
 BuildRequires:	libicu-devel >= 3.4.0-1
+BuildRequires:	libstdc++-devel
 BuildRequires:	php-devel >= 3:5.0.0
+BuildRequires:	pkgconfig
+BuildRequires:	re2c
 BuildRequires:	rpmbuild(macros) >= 1.344
 %{?requires_php_extension}
 Provides:	php(intl)
