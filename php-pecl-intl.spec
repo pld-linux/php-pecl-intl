@@ -3,13 +3,12 @@
 Summary:	%{modname} - Internationalization extension
 Summary(pl.UTF-8):	%{modname} - rozszerzenie internacjonalizacji
 Name:		php-pecl-%{modname}
-Version:	1.1.0
-Release:	2
+Version:	1.1.1
+Release:	1
 License:	PHP 3.01
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
-# Source0-md5:	650f59a78650f4557f3bf8745ce2c663
-Patch0:		%{name}-tsrm.patch
+# Source0-md5:	f69e662ff0125eb991597be9b5116d96
 URL:		http://pecl.php.net/package/intl/
 BuildRequires:	libicu-devel >= 3.4.0-1
 BuildRequires:	libstdc++-devel
@@ -38,7 +37,6 @@ To rozszerzenie ma w PECL status: %{status}.
 %prep
 %setup -qc
 mv %{modname}-%{version}/* .
-%patch0 -p2
 
 %build
 phpize
@@ -50,8 +48,8 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d
 
 %{__make} install \
-	INSTALL_ROOT=$RPM_BUILD_ROOT \
-	EXTENSION_DIR=%{php_extensiondir}
+	EXTENSION_DIR=%{php_extensiondir} \
+	INSTALL_ROOT=$RPM_BUILD_ROOT
 cat <<'EOF' > $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d/%{modname}.ini
 ; Enable %{modname} extension module
 extension=%{modname}.so
@@ -70,6 +68,6 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc doc CREDITS
+%doc doc/* CREDITS
 %config(noreplace) %verify(not md5 mtime size) %{php_sysconfdir}/conf.d/%{modname}.ini
 %attr(755,root,root) %{php_extensiondir}/%{modname}.so
