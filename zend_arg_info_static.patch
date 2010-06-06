@@ -1,0 +1,218 @@
+--- php-pecl-intl-1.1.1/collator/collator_class.c~	2010-03-16 00:03:30.000000000 +0200
++++ php-pecl-intl-1.1.1/collator/collator_class.c	2010-06-06 22:00:21.622436798 +0300
+@@ -88,22 +88,18 @@
+        modify approptiate 'collator_XX_args' for
+        the procedural API.
+ */
+-static
+ ZEND_BEGIN_ARG_INFO_EX( collator_0_args, 0, 0, 0 )
+ ZEND_END_ARG_INFO()
+ 
+-static
+ ZEND_BEGIN_ARG_INFO_EX( collator_1_arg, 0, 0, 1 )
+ 	ZEND_ARG_INFO( 0, arg1 )
+ ZEND_END_ARG_INFO()
+ 
+-static
+ ZEND_BEGIN_ARG_INFO_EX( collator_2_args, 0, 0, 2 )
+ 	ZEND_ARG_INFO( 0, arg1 )
+ 	ZEND_ARG_INFO( 0, arg2 )
+ ZEND_END_ARG_INFO()
+ 
+-static
+ ZEND_BEGIN_ARG_INFO_EX( collator_sort_args, 0, 0, 1 )
+ 	ZEND_ARG_ARRAY_INFO( 1, arr, 0 )
+ 	ZEND_ARG_INFO( 0, flags )
+--- php-pecl-intl-1.1.1/formatter/formatter_class.c~	2010-03-16 00:03:30.000000000 +0200
++++ php-pecl-intl-1.1.1/formatter/formatter_class.c	2010-06-06 22:01:21.165241865 +0300
+@@ -80,63 +80,54 @@
+  */
+ 
+ /* {{{ arginfo */
+-static ZEND_BEGIN_ARG_INFO_EX(number_parse_arginfo, 0, 0, 1)
++ZEND_BEGIN_ARG_INFO_EX(number_parse_arginfo, 0, 0, 1)
+ 	ZEND_ARG_INFO(0, string)
+ 	ZEND_ARG_INFO(0, type)
+ 	ZEND_ARG_INFO(1, position)
+ ZEND_END_ARG_INFO()
+ 
+-static ZEND_BEGIN_ARG_INFO_EX(number_parse_currency_arginfo, 0, 0, 2)
++ZEND_BEGIN_ARG_INFO_EX(number_parse_currency_arginfo, 0, 0, 2)
+ 	ZEND_ARG_INFO(0, string)
+ 	ZEND_ARG_INFO(1, currency)
+ 	ZEND_ARG_INFO(1, position)
+ ZEND_END_ARG_INFO()
+ 
+-static
+ ZEND_BEGIN_ARG_INFO_EX(arginfo_numberformatter_getattribute, 0, 0, 1)
+ 	ZEND_ARG_INFO(0, attr)
+ ZEND_END_ARG_INFO()
+ 
+-static
+ ZEND_BEGIN_ARG_INFO_EX(arginfo_numberformatter_setattribute, 0, 0, 2)
+ 	ZEND_ARG_INFO(0, attr)
+ 	ZEND_ARG_INFO(0, value)
+ ZEND_END_ARG_INFO()
+ 
+-static
+ ZEND_BEGIN_ARG_INFO_EX(arginfo_numberformatter_setsymbol, 0, 0, 2)
+ 	ZEND_ARG_INFO(0, attr)
+ 	ZEND_ARG_INFO(0, symbol)
+ ZEND_END_ARG_INFO()
+ 
+-static
+ ZEND_BEGIN_ARG_INFO(arginfo_numberformatter_getpattern, 0)
+ ZEND_END_ARG_INFO()
+ 
+-static
+ ZEND_BEGIN_ARG_INFO_EX(arginfo_numberformatter_setpattern, 0, 0, 1)
+ 	ZEND_ARG_INFO(0, pattern)
+ ZEND_END_ARG_INFO()
+ 
+-static
+ ZEND_BEGIN_ARG_INFO_EX(arginfo_numberformatter_getlocale, 0, 0, 0)
+ 	ZEND_ARG_INFO(0, type)
+ ZEND_END_ARG_INFO()
+ 
+-static
+ ZEND_BEGIN_ARG_INFO_EX(arginfo_numberformatter___construct, 0, 0, 2)
+ 	ZEND_ARG_INFO(0, locale)
+ 	ZEND_ARG_INFO(0, style)
+ 	ZEND_ARG_INFO(0, pattern)
+ ZEND_END_ARG_INFO()
+ 
+-static
+ ZEND_BEGIN_ARG_INFO_EX(arginfo_numberformatter_formatcurrency, 0, 0, 2)
+ 	ZEND_ARG_INFO(0, num)
+ 	ZEND_ARG_INFO(0, currency)
+ ZEND_END_ARG_INFO()
+ 
+-static
+ ZEND_BEGIN_ARG_INFO_EX(arginfo_numberformatter_format, 0, 0, 1)
+ 	ZEND_ARG_INFO(0, num)
+ 	ZEND_ARG_INFO(0, type)
+--- php-pecl-intl-1.1.1/normalizer/normalizer_class.c~	2010-03-16 00:03:30.000000000 +0200
++++ php-pecl-intl-1.1.1/normalizer/normalizer_class.c	2010-06-06 22:01:45.691810267 +0300
+@@ -29,7 +29,6 @@
+ 
+ /* {{{ Normalizer methods arguments info */
+ 
+-static
+ ZEND_BEGIN_ARG_INFO_EX( normalizer_3_args, 0, 0, 3 )
+ 	ZEND_ARG_INFO( 0, arg1 )
+ 	ZEND_ARG_INFO( 0, arg2 )
+--- php-pecl-intl-1.1.1/locale/locale_class.c~	2010-03-16 00:03:30.000000000 +0200
++++ php-pecl-intl-1.1.1/locale/locale_class.c	2010-06-06 22:02:06.064926337 +0300
+@@ -35,29 +35,24 @@
+  *        approptiate 'locale_XX_args' for the procedural API!
+  */
+ 
+-static
+ ZEND_BEGIN_ARG_INFO_EX( locale_0_args, 0, 0, 0 )
+ ZEND_END_ARG_INFO()
+ 
+-static
+ ZEND_BEGIN_ARG_INFO_EX( locale_1_arg, 0, 0, 1 )
+ 	ZEND_ARG_INFO( 0, arg1 )
+ ZEND_END_ARG_INFO()
+ 
+-static
+ ZEND_BEGIN_ARG_INFO_EX( locale_2_args, 0, 0, 2 )
+ 	ZEND_ARG_INFO( 0, arg1 )
+ 	ZEND_ARG_INFO( 0, arg2 )
+ ZEND_END_ARG_INFO()
+ 
+-static
+ ZEND_BEGIN_ARG_INFO_EX( locale_3_args, 0, 0, 3 )
+         ZEND_ARG_INFO( 0, arg1 )
+         ZEND_ARG_INFO( 0, arg2 )
+         ZEND_ARG_INFO( 0, arg3 )
+ ZEND_END_ARG_INFO()
+ 
+-static
+ ZEND_BEGIN_ARG_INFO_EX( locale_4_args, 0, 0, 4 )
+         ZEND_ARG_INFO( 0, arg1 )
+         ZEND_ARG_INFO( 0, arg2 )
+--- php-pecl-intl-1.1.1/dateformat/dateformat_class.c~	2010-03-16 00:03:30.000000000 +0200
++++ php-pecl-intl-1.1.1/dateformat/dateformat_class.c	2010-06-06 22:02:36.218265767 +0300
+@@ -84,42 +84,35 @@
+  */
+ 
+ /* {{{ arginfo */
+-static ZEND_BEGIN_ARG_INFO_EX(datefmt_parse_args, 0, 0, 1)
++ZEND_BEGIN_ARG_INFO_EX(datefmt_parse_args, 0, 0, 1)
+ 		ZEND_ARG_INFO(0, string)
+ 		ZEND_ARG_INFO(1, position)
+ ZEND_END_ARG_INFO()
+ 
+-static
+ ZEND_BEGIN_ARG_INFO_EX(arginfo_intldateformatter_format, 0, 0, 0)
+ 	ZEND_ARG_INFO(0, args)
+ 	ZEND_ARG_INFO(0, array)
+ ZEND_END_ARG_INFO()
+ 
+-static
+ ZEND_BEGIN_ARG_INFO(arginfo_intldateformatter_getdatetype, 0)
+ ZEND_END_ARG_INFO()
+ 
+-static
+ ZEND_BEGIN_ARG_INFO_EX(arginfo_intldateformatter_settimezoneid, 0, 0, 1)
+ 	ZEND_ARG_INFO(0, zone)
+ ZEND_END_ARG_INFO()
+ 
+-static
+ ZEND_BEGIN_ARG_INFO_EX(arginfo_intldateformatter_setpattern, 0, 0, 1)
+ 	ZEND_ARG_INFO(0, pattern)
+ ZEND_END_ARG_INFO()
+ 
+-static
+ ZEND_BEGIN_ARG_INFO_EX(arginfo_intldateformatter_setlenient, 0, 0, 1)
+ 	ZEND_ARG_INFO(0, lenient)
+ ZEND_END_ARG_INFO()
+ 
+-static
+ ZEND_BEGIN_ARG_INFO_EX(arginfo_intldateformatter_setcalendar, 0, 0, 1)
+ 	ZEND_ARG_INFO(0, which)
+ ZEND_END_ARG_INFO()
+ 
+-static
+ ZEND_BEGIN_ARG_INFO_EX(arginfo_intldateformatter___construct, 0, 0, 3)
+ 	ZEND_ARG_INFO(0, locale)
+ 	ZEND_ARG_INFO(0, datetype)
+--- php-pecl-intl-1.1.1/msgformat/msgformat_class.c~	2010-03-16 00:03:30.000000000 +0200
++++ php-pecl-intl-1.1.1/msgformat/msgformat_class.c	2010-06-06 22:02:58.456171037 +0300
+@@ -77,34 +77,28 @@
+  */
+ 
+ /* {{{ arginfo */
+-static
+ ZEND_BEGIN_ARG_INFO_EX(arginfo_messageformatter___construct, 0, 0, 2)
+ 	ZEND_ARG_INFO(0, locale)
+ 	ZEND_ARG_INFO(0, pattern)
+ ZEND_END_ARG_INFO()
+ 
+-static
+ ZEND_BEGIN_ARG_INFO(arginfo_messageformatter_geterrormessage, 0)
+ ZEND_END_ARG_INFO()
+ 
+-static
+ ZEND_BEGIN_ARG_INFO_EX(arginfo_messageformatter_formatmessage, 0, 0, 3)
+ 	ZEND_ARG_INFO(0, locale)
+ 	ZEND_ARG_INFO(0, pattern)
+ 	ZEND_ARG_INFO(0, args)
+ ZEND_END_ARG_INFO()
+ 
+-static
+ ZEND_BEGIN_ARG_INFO_EX(arginfo_messageformatter_format, 0, 0, 1)
+ 	ZEND_ARG_INFO(0, args)
+ ZEND_END_ARG_INFO()
+ 
+-static
+ ZEND_BEGIN_ARG_INFO_EX(arginfo_messageformatter_setpattern, 0, 0, 1)
+ 	ZEND_ARG_INFO(0, pattern)
+ ZEND_END_ARG_INFO()
+ 
+-static
+ ZEND_BEGIN_ARG_INFO_EX(arginfo_messageformatter_parse, 0, 0, 1)
+ 	ZEND_ARG_INFO(0, source)
+ ZEND_END_ARG_INFO()
