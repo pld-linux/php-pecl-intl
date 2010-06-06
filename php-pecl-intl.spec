@@ -4,11 +4,13 @@ Summary:	%{modname} - Internationalization extension
 Summary(pl.UTF-8):	%{modname} - rozszerzenie internacjonalizacji
 Name:		php-pecl-%{modname}
 Version:	1.1.1
-Release:	1
+Release:	2
 License:	PHP 3.01
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
 # Source0-md5:	f69e662ff0125eb991597be9b5116d96
+Patch0:		zend_arg_info_static.patch
+Patch1:		z_refcount.patch
 URL:		http://pecl.php.net/package/intl/
 BuildRequires:	libicu-devel >= 3.4.0-1
 BuildRequires:	libstdc++-devel
@@ -37,6 +39,8 @@ To rozszerzenie ma w PECL status: %{status}.
 %prep
 %setup -qc
 mv %{modname}-%{version}/* .
+%patch0 -p1
+%patch1 -p1
 
 %build
 phpize
