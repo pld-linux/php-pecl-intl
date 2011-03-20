@@ -4,7 +4,7 @@ Summary:	%{modname} - Internationalization extension
 Summary(pl.UTF-8):	%{modname} - rozszerzenie internacjonalizacji
 Name:		php-pecl-%{modname}
 Version:	1.1.1
-Release:	4
+Release:	5
 License:	PHP 3.01
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
