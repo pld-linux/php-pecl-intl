@@ -3,12 +3,12 @@
 Summary:	%{modname} - Internationalization extension
 Summary(pl.UTF-8):	%{modname} - rozszerzenie internacjonalizacji
 Name:		php-pecl-%{modname}
-Version:	1.1.1
-Release:	6
+Version:	1.1.2
+Release:	1
 License:	PHP 3.01
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
-# Source0-md5:	f69e662ff0125eb991597be9b5116d96
+# Source0-md5:	6e32eb19a8920c48f88571eb2e9d2213
 Patch0:		zend_arg_info_static.patch
 Patch1:		z_refcount.patch
 URL:		http://pecl.php.net/package/intl/
