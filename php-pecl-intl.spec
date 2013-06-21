@@ -1,8 +1,9 @@
+%define		php_name	php%{?php_suffix}
 %define		modname		intl
 %define		status		stable
 Summary:	%{modname} - Internationalization extension
 Summary(pl.UTF-8):	%{modname} - rozszerzenie internacjonalizacji
-Name:		php-pecl-%{modname}
+Name:		%{php_name}-pecl-%{modname}
 Version:	1.1.2
 Release:	1
 License:	PHP 3.01
@@ -12,12 +13,12 @@ Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
 Patch0:		zend_arg_info_static.patch
 Patch1:		z_refcount.patch
 URL:		http://pecl.php.net/package/intl/
+BuildRequires:	%{php_name}-devel >= 3:5.0.0
 BuildRequires:	libicu-devel >= 3.4.0-1
 BuildRequires:	libstdc++-devel
-BuildRequires:	php-devel >= 3:5.0.0
 BuildRequires:	pkgconfig
 BuildRequires:	re2c
-BuildRequires:	rpmbuild(macros) >= 1.344
+BuildRequires:	rpmbuild(macros) >= 1.650
 %{?requires_php_extension}
 Provides:	php(intl)
 Obsoletes:	php-pecl-idn
