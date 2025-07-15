@@ -41,8 +41,8 @@ To rozszerzenie ma w PECL status: %{status}.
 %setup -qc
 mv %{modname}-%{version}/* .
 %if "%{php_major_version}.%{php_minor_version}" >= "5.3"
-%patch0 -p1
-%patch1 -p1
+%patch -P0 -p1
+%patch -P1 -p1
 %endif
 
 %build
